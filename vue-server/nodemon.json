@@ -1,0 +1,9 @@
+{
+  "verbose": false,
+  "watch": [
+    "./src",
+    "../shared-server"
+  ],
+  "ext": "ts, json, env, js",
+  "exec": "npx ts-node --files --require tsconfig-paths/register ./src/main.ts"
+}

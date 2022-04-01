@@ -1,0 +1,12 @@
+# Node modules
+/node_modules
+/vue-server/node_modules
+/vue-web/node_modules
+
+# Webstorm
+/vue-server/.idea/workspace.xml
+/vue-web/.idea/workspace.xml
+
+# Build
+/vue-server/build
+/vue-web/build

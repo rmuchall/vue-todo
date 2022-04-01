@@ -1,0 +1,7 @@
+{
+  "extends": "./tsconfig",
+  "include": [
+    "./config/production-env.ts",
+    "./config/production-orm.ts"
+  ]
+}
