@@ -1,6 +1,7 @@
 module.exports = {
     root: true,
     env: {
+        node: true, // Used to define process.env
         browser: true
     },
     extends: [
@@ -14,7 +15,7 @@ module.exports = {
         parser: "@typescript-eslint/parser",
         extraFileExtensions: [".vue"],
         tsconfigRootDir: __dirname,
-        project: "tsconfig.json"
+        project: "tsconfig.json",
     },
     plugins: [
         "@typescript-eslint",

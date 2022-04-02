@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env-shell NODE_ENV=development webpack serve --mode development --hot",
+    "start": "cross-env-shell NODE_ENV=development webpack serve --hot",
     "build": "cross-env-shell NODE_ENV=production webpack",
     "lint": "eslint --config .eslintrc.js --ext .ts,.vue ./src ./test ../shared-server"
   },
@@ -25,6 +25,7 @@
     "@typescript-eslint/eslint-plugin": "5.17.0",
     "@typescript-eslint/parser": "5.17.0",
     "autoprefixer": "10.4.4",
+    "cache-bust-plugin": "^0.0.6",
     "clean-webpack-plugin": "4.0.0",
     "copy-webpack-plugin": "10.2.4",
     "cross-env": "7.0.3",

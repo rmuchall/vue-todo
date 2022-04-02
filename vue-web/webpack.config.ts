@@ -11,7 +11,7 @@ import CopyWebpackPlugin from "copy-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import {CleanWebpackPlugin} from "clean-webpack-plugin";
 import BundleAnalyzerPlugin from "webpack-bundle-analyzer/lib/BundleAnalyzerPlugin";
-import {CacheBustPlugin} from "../../../OpenSource/cache-bust-plugin/src/CacheBustPlugin";
+import {CacheBustPlugin} from "cache-bust-plugin";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const envConfig = require(path.resolve(process.cwd(), `config/${process.env["NODE_ENV"]}-env`));
@@ -110,7 +110,7 @@ const webpackConfig: Configuration = {
                     }
                 },
                 mode: "readonly"
-            },
+            }
         }),
         new VueLoaderPlugin(),
         new MiniCssExtractPlugin({
@@ -119,7 +119,7 @@ const webpackConfig: Configuration = {
         new CopyWebpackPlugin({
             patterns: [
                 "favicon.ico",
-                "images/**/*"
+                "images/**/*",
             ]
         }),
         new BundleAnalyzerPlugin({
@@ -129,7 +129,9 @@ const webpackConfig: Configuration = {
         new ProgressPlugin({
             activeModules: true
         }),
-        new CacheBustPlugin(),
+        new CacheBustPlugin({
+            writeToIndexHtml: process.env["NODE_ENV"] === "production",
+        }),
     ],
     optimization: {
         minimize: process.env["NODE_ENV"] === "production",
@@ -154,20 +156,22 @@ const webpackConfig: Configuration = {
     },
     resolve: {
         alias: {
-            "vue$": "vue/dist/vue.esm-bundler.js",
+            "vue$": "vue/dist/vue.runtime.esm-bundler.js",
+            "dayjs$": "dayjs/esm/index.js",
             // Resolve shared-x
             // Note that dollar is omitted
             // path.resolve must be used here
             "shared-server": path.resolve(__dirname, "../shared-server"),
-            "shared-web": path.resolve(__dirname, "../shared-web"),
+            "shared-web": path.resolve(__dirname, "../shared-web")
         },
         extensions: [".ts", ".js", ".vue"],
     },
-    // https://localhost/webpack-dev-server
+    // https://localhost:5002/webpack-dev-server
     devServer: {
         port: 5002,
+        historyApiFallback: true,
         server: {
-            type: "http"
+            type: "http",
         },
         client: {
             overlay: true

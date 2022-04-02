@@ -1,5 +1,5 @@
 {
-  "include": ["./webpack.config.ts", "./src", "./test", "../shared-server", "../shared-web"],
+  "include": ["webpack.config.ts", "./src", "./test", "../shared-server", "../shared-web"],
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
@@ -25,7 +25,7 @@
     // "useDefineForClassFields": true,                  /* Emit ECMAScript-standard-compliant class fields. */
 
     /* Modules */
-    "module": "CommonJS",                                /* Specify what module code is generated. */
+    "module": "ES2020",                                  /* Specify what module code is generated. */
     // "rootDir": "./",                                  /* Specify the root folder within your source files. */
     "moduleResolution": "node",                          /* Specify how TypeScript looks up a file from a given module specifier. */
     // "baseUrl": "./",                                  /* Specify the base directory to resolve non-relative module names. */
@@ -103,6 +103,11 @@
     "paths": {
       "shared-server/*": ["../shared-server/*"],
       "shared-web/*": ["../shared-web/*"]
+    }
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
     }
   }
 }
