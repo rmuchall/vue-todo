@@ -5,7 +5,7 @@ const ormConfig: Partial<MikroORMOptions> = {
     validate: true,
     strict: true,
     type: "sqlite",
-    dbName: "vuetodo.db",
+    dbName: "vue-todo.db",
     entities: ["./src/entities"],
     // https://mikro-orm.io/docs/migrations/#configuration
     migrations: {
