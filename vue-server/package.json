@@ -20,7 +20,7 @@
     "copy": "cpy ./package.json ./tsconfig.json ./html ./build",
     "poke": "node -e \"const path = require('path'); const json = require('./build/package.json'); json['mikro-orm']['useTsNode'] = false;require('fs').writeFileSync(path.resolve(process.cwd(), './build/package.json'), JSON.stringify(json, null, 2))\"",
     "build": "npm run clean && npm run tsc:app && npm run tsc:config && npm run copy && npm run poke",
-    "prod": "cross-env-shell NODE_ENV=production NODE_EXTRA_CA_CERTS=./certificates/vuetodo/ca/crt.pem node --require tsconfig-paths/register vue-server/src/main.js"
+    "prod": "cross-env-shell NODE_ENV=production node --require tsconfig-paths/register vue-server/src/main.js"
   },
   "keywords": [],
   "author": "",
