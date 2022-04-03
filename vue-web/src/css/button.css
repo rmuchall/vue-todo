@@ -1,7 +1,7 @@
-.s-btn {
+.app-btn {
     @apply inline-block px-6 py-2 rounded text-white bg-gray-900 cursor-pointer;
 }
 
-.s-btn:hover {
+.app-btn:hover {
     @apply bg-gray-600;
 }

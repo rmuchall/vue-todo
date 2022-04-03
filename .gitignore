@@ -10,3 +10,6 @@
 # Build
 /vue-server/build
 /vue-web/build
+
+# Database
+/vue-server/vue-todo.db

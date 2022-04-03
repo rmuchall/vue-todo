@@ -126,9 +126,7 @@ const webpackConfig: Configuration = {
             analyzerMode: process.env["NODE_ENV"] === "development" ? "disabled" : "static",
             openAnalyzer: false
         }),
-        new ProgressPlugin({
-            activeModules: true
-        }),
+        new ProgressPlugin(),
         new CacheBustPlugin({
             writeToIndexHtml: process.env["NODE_ENV"] === "production",
         }),

@@ -20,11 +20,11 @@ export default defineComponent({
   <div class="grid grid-cols-2 gap-6">
     <div class="p-4">
       <pre>Local store: {{localStore.counter}}</pre>
-      <button class="s-btn m-2" @click="localStore.increment()">Increase counter</button>
+      <button class="app-btn m-2" @click="localStore.increment()">Increase counter</button>
     </div>
     <div class="p-4">
       <pre>Shared store: {{sharedStore.counter}}</pre>
-      <button class="s-btn m-2" @click="sharedStore.increment()">Increase counter</button>
+      <button class="app-btn m-2" @click="sharedStore.increment()">Increase counter</button>
     </div>
   </div>
 </template>

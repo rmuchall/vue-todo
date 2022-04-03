@@ -1,4 +1,4 @@
-import {BaseEntity, OptionalProps, PrimaryKey, Property} from "@mikro-orm/core";
+import { BaseEntity, OptionalProps, PrimaryKey, Property, types } from "@mikro-orm/core";
 import {randomUUID} from "crypto";
 
 export abstract class AppEntity<OPTIONAL = never> extends BaseEntity<AppEntity<OPTIONAL>, "id"> {
@@ -7,9 +7,9 @@ export abstract class AppEntity<OPTIONAL = never> extends BaseEntity<AppEntity<O
     @PrimaryKey({ onCreate: () => randomUUID()})
     id: string;
 
-    @Property({ onCreate: () => new Date() })
-    created: Date;
+    @Property({ type: types.integer, onCreate: () => new Date() })
+    created: Date = new Date();
 
-    @Property({ onCreate: () => new Date(), onUpdate: () => new Date() })
-    updated: Date;
+    @Property({ type: types.integer, onCreate: () => new Date(), onUpdate: () => new Date() })
+    updated: Date = new Date();
 }

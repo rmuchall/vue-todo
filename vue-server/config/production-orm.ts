@@ -4,12 +4,8 @@ const ormConfig: Partial<MikroORMOptions> = {
     debug: false,
     validate: true,
     strict: true,
-    type: "postgresql",
-    dbName: "vuetodo_db",
-    host: "localhost",
-    port: 5432,
-    user: "vuetodo_user",
-    password: "Seven40Seven!",
+    type: "sqlite",
+    dbName: "vuetodo.db",
     entities: ["./src/entities"],
     // https://mikro-orm.io/docs/migrations/#configuration
     migrations: {

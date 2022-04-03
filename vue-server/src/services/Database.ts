@@ -1,5 +1,5 @@
 import {MikroORM, RequestContext} from "@mikro-orm/core";
-import {EntityRepository, PostgreSqlDriver, SqlEntityManager} from "@mikro-orm/postgresql";
+import {EntityRepository, SqliteDriver, SqlEntityManager} from "@mikro-orm/sqlite";
 import {TodoEntity} from "../entities/TodoEntity";
 import {Log} from "./Log";
 import {Config} from "./Config";
@@ -70,8 +70,8 @@ export abstract class Database {
         return em;
     }
 
-    static get driver(): PostgreSqlDriver {
-        return Database.requestContextEntityManager.getDriver() as PostgreSqlDriver;
+    static get driver(): SqliteDriver {
+        return Database.requestContextEntityManager.getDriver() as SqliteDriver;
     }
 
     // -----
